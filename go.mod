@@ -1,4 +1,4 @@
-module waf
+module github.com/Goose47/waf
 
 go 1.23.4
 
