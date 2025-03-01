@@ -32,7 +32,7 @@ type WAF struct {
 	port   int
 }
 
-func NewWAF(opts ...ConfigOption) (*WAF, error) {
+func New(opts ...ConfigOption) (*WAF, error) {
 	waf := &WAF{}
 
 	for _, opt := range opts {
