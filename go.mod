@@ -3,7 +3,7 @@ module github.com/Goose47/waf
 go 1.23.4
 
 require (
-	github.com/Goose47/wafpb v0.0.6
+	github.com/Goose47/wafpb v0.0.8
 	google.golang.org/grpc v1.70.0
 )
 

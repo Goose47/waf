@@ -9,11 +9,13 @@ import (
 	gen "github.com/Goose47/wafpb/gen/go/waf"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/protobuf/types/known/timestamppb"
 	"io"
 	"net"
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type ConfigOption func(*WAF)
@@ -95,6 +97,7 @@ func (waf *WAF) Analyze(
 	}
 
 	req := &gen.AnalyzeRequest{
+		Timestamp:   timestamppb.New(time.Now()),
 		ClientIp:    clientIP,
 		ClientPort:  clientPort,
 		ServerIp:    serverIP,
@@ -113,5 +116,6 @@ func (waf *WAF) Analyze(
 	}
 
 	//todo threshold
+	//todo rate limit
 	return res.AttackProbability == 1, nil
 }
